@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts  
+Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">  
+<struts>  
+<package name="default" extends="struts-default">  
+  
+<action name="adminlogin" class="com.neerikshak.bean.AdminLogin">  
+<result name="success">welcome.jsp</result>  
+<result name="fail">index.jsp</result>  
+</action>  
+
+<action name="addoffcr" class="com.neerikshak.bean.Officer">  
+<result name="success">addsuccess.jsp</result>  
+<result name="fail">addfail.jsp</result>  
+</action>
+
+<action name="updateoffcr" class="com.neerikshak.bean.UpdateOfficer">  
+<result name="success">welcome.jsp</result>  
+<result name="fail">addfail.jsp</result>  
+</action>
+
+<action name="officerlogin" class="com.neerikshak.bean.OfficerLogin">  
+<result name="success">Officer.jsp</result>  
+<result name="fail">index.jsp</result>  
+</action>  
+  
+<action name="imgup" class="com.neerikshak.bean.Query">
+
+<interceptor-ref name="fileUpload">  
+            <param name="maximumSize">2097152</param>  
+
+            <param name="allowedTypes">  
+                image/png,image/gif,image/jpeg,image/pjpeg  
+                            </param>  
+        </interceptor-ref>  
+     <interceptor-ref name="defaultStack"></interceptor-ref>  
+   <result name="SUCCESS">index.jsp</result>  
+<result name="fail">index.jsp</result>     
+</action>  
+<!-- 
+<action name="Image" class="com.neerikshak.bean.RetrieveImages">
+			<result name="SUCCESS">/index.jsp</result>
+		</action>
+   -->
+</package>  
+</struts>      
